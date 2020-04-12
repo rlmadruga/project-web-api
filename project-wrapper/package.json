@@ -1,25 +1,14 @@
 {
   "name": "project-web-api",
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./bin/www",
-    "dev": "DEBUG=lab-nodemailer:* nodemon ./bin/www",
+    "dev": "DEBUG=project-web-api:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rlmadruga/project-web-api.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rlmadruga/project-web-api/issues"
-  },
-  "homepage": "https://github.com/rlmadruga/project-web-api#readme",
   "dependencies": {
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
