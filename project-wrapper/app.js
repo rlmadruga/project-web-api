@@ -1,20 +1,21 @@
 require('dotenv').config();
 
 //REQUIRE GENERAL
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const express = require('express');
-const hbs = require('hbs');
-const mongoose = require('mongoose');
-const logger = require('morgan');
-const path = require('path');
+const bodyParser    = require('body-parser');
+const cookieParser  = require('cookie-parser');
+const express       = require('express');
+const hbs           = require('hbs');
+const mongoose      = require('mongoose');
+const logger        = require('morgan');
+const path          = require('path');
+const favicon       = require('serve-favicon');
 
 //REQUIRE AUTH
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 
-
+//MONGOOSE CONNECTION DATABASE
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -43,6 +44,7 @@ app.use(cookieParser());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.png')));
 
 //HBS ERROR 
 hbs.registerHelper('ifUndefined', (value, options) => {
@@ -74,9 +76,8 @@ require('./passport')(app);
 //ROUTES
 const index = require('./routes/index');
 app.use('/', index);
-  
-// const authRoutes = require('./routes/auth');
-// app.use('/auth', authRoutes);
+
+const authRoutes = require('./routes/auth');
+app.use('/auth', authRoutes);
         
-  
 module.exports = app;
