@@ -1,0 +1,65 @@
+
+<h2>Cadastre o seu carro:</h2>
+
+<form action="/save" method="POST" id="form-container"  enctype="multipart/form-data">
+  <label for="brand">Marca</label>
+  <select>
+     <option value="toyota">Toyota</option>   
+     <option value="volkswagen">Volkswagen</option>
+     <option value="fiat">Fiat</option>
+     <option value="ford">Ford</option>
+     <option value="nissan">Nissan</option>
+     <option value="hyundai">Hyundai</option>
+     <option value="chevrolet">Chevrolet</option>
+     <option value="honda">Honda</option>
+  </select>
+
+  <label for="model">Modelo</label>
+  <select>
+     <option value="toyota">Toyota</option>   
+     <option value="volkswagen">Volkswagen</option>
+     <option value="fiat">Fiat</option>
+     <option value="fiat">Fiat</option>
+     <option value="fiat">Fiat</option>
+  </select>
+
+  <br><br>
+
+  <label for="color">Cor</label>
+  <input id="cor" type="text" name="cor" placeholder="Branco">
+  <br><br>
+  
+  <label for="plate">Placa</label>
+  <input id="plate" type="text" name="plate" placeholder="AAA-1234">
+  <br><br>
+
+  <label for="city">Cidade</label>
+  <input id="city" type="text" name="city" placeholder="Natal">
+  <br><br>
+
+  <label for="state">Estado</label>
+  <input id="state" type="text" name="state" placeholder="RN">
+  <br><br>
+
+  <label for="year">Ano</label>
+  <input id="year" type="number" name="year" placeholder="2020">
+  <br><br>
+
+  <label for="details">Detalhes</label>
+  <input id="details" type="text" name="details" placeholder="Lateral riscada em amarelo">
+  <br><br>
+
+  <label for="photo">Photo:
+    <input type="file" name="photo">
+  </label>
+  <br><br>
+
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br>
+
+  <button type="submit">Save Car</button>
+
+</form>
