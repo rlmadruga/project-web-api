@@ -1,0 +1,16 @@
+<a href="/dashboard">Voltar para dashboard</a>
+
+{{#with car}}
+<h2>{{plate}}</h2>
+<h4>Situação: {{status}}</h4>
+<img src="{{path}}" alt="{{model}}" width="200">
+<h4>Marca: {{brand}}</h4>
+<h4>Modelo: {{model}}</h4>
+<h4>Cor : {{color}}</h4>
+<h4>Cidade> {{city}}</h4>
+<h4>Estado: {{state}}</h4>
+<h4>Ano: {{year}}</h4>
+<h4>Detalhes: {{details}}</h4>
+{{/with}}
+
+<a href="/cars-edit/{{car._id}}">Editar</a>

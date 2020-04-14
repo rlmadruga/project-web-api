@@ -1,1 +1,58 @@
+<a href="/dashboard">Voltar para o dashboard</a>
+
 <h2>Edit Car</h2>
+
+<form action="/cars-edit" method="POST" id="form">
+<input type="hidden" name="carId" value="{{car._id}}">
+  <label for="brand">Marca</label>
+<input type="text" name="brand" value="{{car.brand}}" disabled>
+
+<br><br>
+
+<label for="model">Modelo</label>
+<input type="text" name="model" value="{{car.model}}" disabled>
+
+  <br><br>
+
+  <label for="color">Cor</label>
+  <input id="color" type="text" name="color" value="{{car.color}}" disabled>
+  <br><br>
+
+
+  <label for="city">Cidade</label>
+  <input id="city" type="text" name="city" value="{{car.city}}" disabled>
+  <br><br>
+
+  <label for="state">Estado</label>
+  <input id="state" type="text" name="state" value="{{car.state}}" disabled>
+  <br><br>
+
+  <label for="year">Ano</label>
+  <input id="year" type="number" name="year" value="{{car.year}}" disabled>
+  <br><br>
+
+  <label for="details">Detalhes</label>
+  <input id="details" type="text" name="details" value="{{car.details}}">
+  <br><br>
+
+  <label for="status">Situação</label>
+  <select name='status'>
+     <option value="{{car.status}}" selected>{{car.status}}</option>
+    {{#compare car.status "Roubado" operator='==='}}
+     <option value="Sem registro ou alerta de roubo">Sem registro ou alerta de roubo</option>
+    {{/compare}}
+    {{#compare car.status "Sem registro ou alerta de roubo" operator='==='}}
+     <option value="Roubado">Roubado</option>
+    {{/compare}}
+  </select>
+  <br><br>
+
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br>
+
+  <button type="submit">Editar carro</button>
+
+</form>

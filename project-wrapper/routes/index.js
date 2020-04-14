@@ -14,8 +14,7 @@ router.get('/', (req, res, next) => {
 
 //DASHBOARD
 router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  
-  // console.log(req.user);
+
   Car
   .find({owner: req.user._id})
   .populate('owner')
@@ -70,16 +69,93 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
     originalName: req.file.originalname,
     owner: req.user._id
   })
-  .then(() => {
-    res.redirect('auth/dashboard');
+  .then(response => {
+    console.log(response);
+    res.redirect('/dashboard');
   })
   .catch(error => console.log(error));
 });
 
+//SHOW CAR DETAILS --------------------------
+router.get('/cars/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  const {
+    carId
+  } = req.params;
+
+  Car
+  .findById(carId)
+  .then(car => {
+    res.render('detailscar', {
+      car
+    });
+  })
+  .catch(error => console.log(error));
+}) 
+
 //EDIT CAR -----------------------------------
-router.get('/editcar', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  res.render('editcar');
+router.get('/cars-edit/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  const {
+    carId
+  } = req.params;
+
+  Car
+  .findById(carId)
+  .then(car => {
+    res.render('editcar', {
+      car
+    });
+  })
+  .catch(error => console.log(error));
 });
+
+
+router.post('/cars-edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  const {
+    details,
+    status,
+    carId
+  } = req.body;
+
+  // console.log('kkkkkk', req.body)
+  Car
+  .findOneAndUpdate({_id: carId}, {
+    $set:{
+      details: details,
+      status: status
+    }
+  }, {
+    new:true
+  })
+  .then(response => {
+    console.log(response)
+    res.redirect(`/cars/${response._id}`);
+  })
+  .catch(error => console.log(error));
+})
+
+//DELETAR CAR ------------------------------------
+router.get('/cars-delete/:carId', (req, res, next) => {
+  const {
+    carId
+  } = req.params;
+
+  Car
+  .findByIdAndDelete(carId)
+  .then(response => {
+    res.redirect('/dashboard');
+  })
+  .catch(error => console.log(error));
+})
+
+//SEARCH -----------------------------------------
+router.get('/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  Car
+  .findOne({plate: req.query.search})
+  .then(response => {
+    res.render('dashboard', {response})
+  })
+  .catch(error => console.log(error));
+})
 
 
 
