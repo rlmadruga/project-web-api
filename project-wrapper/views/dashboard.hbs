@@ -3,6 +3,14 @@
 <h1>Olá, {{user.username}}</h1>
 <h2>{{user.status}}</h2>
 
+<ul>
+    {{#each cars}}
+    <li>
+    <a href="/cars/{{_id}}">{{plate}}</a>
+    <a href="/cars-delete/{{_id}}">Deletar</a>
+    </li>
+    {{/each}}
+</ul>
 <a href="/savecar">Cadastrar carro</a>
 <a href="/editcar">Editar carro</a>
 <a href="/auth/logout">Logout</a>

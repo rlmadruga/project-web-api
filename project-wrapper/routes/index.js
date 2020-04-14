@@ -12,6 +12,26 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+//DASHBOARD
+router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  
+  // console.log(req.user);
+  Car
+  .find({owner: req.user._id})
+  .populate('owner')
+  .then(cars => {
+    const manageCars = cars.map(car => {
+      if (car.owner && car.owner.toString() === req.user._id.toString()) {
+        car.isOwner = true;
+      }
+      console.log(car)
+      return car;
+    });
+    res.render('dashboard', {user: req.user, cars: manageCars});
+  })
+  .catch(error => console.log(error));
+});
+
 //SAVE CAR -----------------------------------
 router.get('/savecar', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   res.render('savecar');
@@ -28,6 +48,7 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
     state,
     year,
     details,
+    status
   } = req.body;
 
   // const location = {
@@ -44,12 +65,13 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
     state,
     year,
     details,
+    status,
     path: req.file.url,
     originalName: req.file.originalname,
     owner: req.user._id
   })
   .then(() => {
-    res.redirect('/auth/dashboard');
+    res.redirect('auth/dashboard');
   })
   .catch(error => console.log(error));
 });
