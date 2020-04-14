@@ -11,6 +11,10 @@ const carSchema = new Schema({
     state: String,
     year: Number,
     details: String,
+    status: {
+        type: String,
+        enum: ['Roubado', 'Sem registro ou alerta de roubo']
+    },
     path: String,
     originalName: String,
     owner: {

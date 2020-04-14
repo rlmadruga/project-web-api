@@ -1,9 +1,10 @@
+<a href="/dashboard">Voltar para seu perfil</a>
 
 <h2>Cadastre o seu carro:</h2>
 
 <form action="/save" method="POST" id="form-container"  enctype="multipart/form-data">
   <label for="brand">Marca</label>
-  <select>
+  <select name='brand'>
      <option value="toyota">Toyota</option>   
      <option value="volkswagen">Volkswagen</option>
      <option value="fiat">Fiat</option>
@@ -15,7 +16,7 @@
   </select>
 
   <label for="model">Modelo</label>
-  <select>
+  <select name='model'>
      <option value="toyota">Toyota</option>   
      <option value="volkswagen">Volkswagen</option>
      <option value="fiat">Fiat</option>
@@ -26,7 +27,7 @@
   <br><br>
 
   <label for="color">Cor</label>
-  <input id="cor" type="text" name="cor" placeholder="Branco">
+  <input id="color" type="text" name="color" placeholder="Branco">
   <br><br>
   
   <label for="plate">Placa</label>
@@ -47,6 +48,13 @@
 
   <label for="details">Detalhes</label>
   <input id="details" type="text" name="details" placeholder="Lateral riscada em amarelo">
+  <br><br>
+
+  <label for="status">Situação</label>
+  <select name='status'>
+     <option value="Roubado">Roubado</option>
+     <option value="Sem registro ou alerta de roubo">Sem registro ou alerta de roubo</option>
+  </select>
   <br><br>
 
   <label for="photo">Photo:

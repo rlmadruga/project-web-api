@@ -96,8 +96,8 @@ router.get('/login', (req, res, next) => {
 
 //LOGIN - POST
 router.post('/login', passport.authenticate("local", {
-  successRedirect: "/auth/dashboard",
-  failureRedirect: "/auth/login",
+  successRedirect: "/dashboard",
+  failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
 }));
@@ -117,11 +117,11 @@ router.get('/confirmation/:confirmCode', (req, res, next) => {
 });
 
 //DASHBOARD --------------------------------------------
-router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+// router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   
-    console.log(req.user);
-    res.render('dashboard', {user: req.user});
-});
+//     console.log(req.user);
+//     res.render('dashboard', {user: req.user});
+// });
 
 //LOGOUT -----------------------------------------------
 router.get("/logout", (req, res) => {
