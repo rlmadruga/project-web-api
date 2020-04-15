@@ -6,7 +6,10 @@ const carSchema = new Schema({
     brand: String,
     model: String,
     color: String,
-    plate: String, 
+    plate: {
+        type: String,
+        unique: true
+    }, 
     city: String,
     state: String,
     year: Number,
