@@ -55,6 +55,9 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
   //   coordinates: [longitude, latitude]
   // }
 
+  
+
+
   Car.create({
     brand,
     model, 
@@ -85,7 +88,6 @@ router.get('/cars/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Car
   .findById(carId)
   .then(car => {
-    console.log(car);
     res.render('detailscar', {
       car
     });
