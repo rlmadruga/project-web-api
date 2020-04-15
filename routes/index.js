@@ -50,30 +50,25 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
     status
   } = req.body;
 
-  // const location = {
-  //   type: 'Point',
-  //   coordinates: [longitude, latitude]
-  // }
-
-  Car.create({
-    brand,
-    model, 
-    color,
-    plate,
-    city,
-    state,
-    year,
-    details,
-    status,
-    path: req.file.url,
-    originalName: req.file.originalname,
-    owner: req.user._id
-  })
-  .then(response => {
-    console.log(response);
-    res.redirect('/dashboard');
-  })
-  .catch(error => console.log(error));
+      Car.create({
+        brand,
+        model, 
+        color,
+        plate,
+        city,
+        state,
+        year,
+        details,
+        status,
+        path: req.file.url,
+        originalName: req.file.originalname,
+        owner: req.user._id
+      })
+      .then(response => {
+        console.log(response);
+        res.redirect('/dashboard');
+      })
+      .catch(error => console.log(error));
 });
 
 //SHOW CAR DETAILS --------------------------
@@ -90,7 +85,11 @@ router.get('/cars/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) => {
       car
     });
   })
-  .catch(error => console.log(error));
+  .catch(error => {
+    
+    res.render('savecar', {message: 'Carro já cadastrado em nosso banco de dados!'})
+    console.log(error);
+  });
 }) 
 
 //EDIT CAR -----------------------------------
@@ -153,10 +152,14 @@ router.get('/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Car
   .findOne({plate: req.query.search})
   .then(response => {
-    res.render('dashboard', {response})
+    if (response !== null) {
+      res.render('dashboard', {response})
+    } else {
+      res.render('dashboard', {message: "Esse carro não está cadastrado no nosso banco de dados"});
+    }
   })
   .catch(error => console.log(error));
-})
+});
 
 
 

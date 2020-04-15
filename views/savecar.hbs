@@ -4,7 +4,8 @@
 
 <form action="/save" method="POST" id="form-container"  enctype="multipart/form-data">
   <label for="brand">Marca</label>
-  <select name='brand'>
+  <select name='brand' id="options">
+    <option value="" disabled selected>Selecione a Marca</option>
      <option value="toyota">Toyota</option>   
      <option value="volkswagen">Volkswagen</option>
      <option value="fiat">Fiat</option>
@@ -16,12 +17,8 @@
   </select>
 
   <label for="model">Modelo</label>
-  <select name='model'>
-     <option value="toyota">Toyota</option>   
-     <option value="volkswagen">Volkswagen</option>
-     <option value="fiat">Fiat</option>
-     <option value="fiat">Fiat</option>
-     <option value="fiat">Fiat</option>
+  <select name='model' id="choices">
+     <option value="" disabled selected>Selecione o Modelo</option>   
   </select>
 
   <br><br>
