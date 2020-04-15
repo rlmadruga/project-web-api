@@ -55,6 +55,13 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
   //   coordinates: [longitude, latitude]
   // }
 
+  Car.findOne({plate}, "plate", (err, user) => {
+        
+    if(plate !== null){
+        res.render("savecar" , {message: "Esse carro já foi cadastrado no nosso banco de dados" });
+        return;
+    }
+
   Car.create({
     brand,
     model, 
@@ -74,6 +81,7 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
     res.redirect('/dashboard');
   })
   .catch(error => console.log(error));
+});
 });
 
 //SHOW CAR DETAILS --------------------------
@@ -116,7 +124,6 @@ router.post('/cars-edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     carId
   } = req.body;
 
-  // console.log('kkkkkk', req.body)
   Car
   .findOneAndUpdate({_id: carId}, {
     $set:{
@@ -149,10 +156,15 @@ router.get('/cars-delete/:carId', (req, res, next) => {
 
 //SEARCH -----------------------------------------
 router.get('/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+
   Car
   .findOne({plate: req.query.search})
   .then(response => {
-    res.render('dashboard', {response})
+    if (response !== null) {
+      res.render('dashboard', {response})
+    } else {
+      res.render('dashboard', {message: "Esse carro não está cadastrado no nosso banco de dados"});
+    }
   })
   .catch(error => console.log(error));
 })
