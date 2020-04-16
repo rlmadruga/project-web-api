@@ -31,3 +31,57 @@ $('#options').on('change', function() {
      $('#choices').append("<option value='" + lookup[selectValue][i] + "'>" + lookup[selectValue][i] + "</option>");
   }
 });
+
+// When an option is changed, search the above for matching choices
+$('#options2').on('change', function() {
+  // Set selected option as variable
+  var selectValue2 = $(this).val();
+
+  // Empty the target field
+  $('#choices2').empty();
+  
+  // For each chocie in the selected option
+  for (i = 0; i < lookup2[selectValue2].length; i++) {
+     // Output choice in the target field
+     $('#choices2').append("<option value='" + lookup2[selectValue2][i] + "'>" + lookup2[selectValue2][i] + "</option>");
+  }
+});
+
+
+// MAPS
+onload=initialize();
+
+var geocoder, map;
+function initialize() {
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(-13.6633819, -69.6391629);
+  var options = {
+    zoom: 4,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  map = new google.maps.Map(document.getElementById("map_canvas"), options);
+  axios.get('http://localhost:3000/api/')
+    .then(response => {
+      const cars = response.data;
+      cars.forEach(element => {
+        let address = element.city + ', ' + element.state;
+        codeAddress(address);
+      });
+      
+    })
+    .catch(error => console.log(error));
+};
+function codeAddress(address) {
+  geocoder.geocode({ 'address': address }, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert("Geocode unsuccessful");
+    }
+  });
+};
