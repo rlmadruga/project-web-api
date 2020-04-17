@@ -54,14 +54,7 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
   //   type: 'Point',
   //   coordinates: [longitude, latitude]
   // }
-
-  Car.findOne({plate}, "plate", (err, user) => {
-        
-    if(plate !== null){
-        res.render("savecar" , {message: "Esse carro já foi cadastrado no nosso banco de dados" });
-        return;
-    }
-
+ 
   Car.create({
     brand,
     model, 
@@ -80,8 +73,10 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
     console.log(response);
     res.redirect('/dashboard');
   })
-  .catch(error => console.log(error));
-});
+  .catch(error => {
+    res.render('savecar', {message: 'Carro já cadastrado em nosso banco de dados'});
+    console.log(error)
+  });
 });
 
 //SHOW CAR DETAILS --------------------------

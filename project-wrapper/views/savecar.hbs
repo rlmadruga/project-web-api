@@ -2,45 +2,52 @@
 
 <h2>Cadastre o seu carro:</h2>
 
-<form action="/save" method="POST" id="form-container"  enctype="multipart/form-data">
-  <label for="brand">Marca</label>
-  <select name='brand'>
-     <option value="toyota">Toyota</option>   
-     <option value="volkswagen">Volkswagen</option>
-     <option value="fiat">Fiat</option>
-     <option value="ford">Ford</option>
-     <option value="nissan">Nissan</option>
-     <option value="hyundai">Hyundai</option>
-     <option value="chevrolet">Chevrolet</option>
-     <option value="honda">Honda</option>
-  </select>
-
-  <label for="model">Modelo</label>
-  <select name='model'>
-     <option value="toyota">Toyota</option>   
-     <option value="volkswagen">Volkswagen</option>
-     <option value="fiat">Fiat</option>
-     <option value="fiat">Fiat</option>
-     <option value="fiat">Fiat</option>
-  </select>
-
+<form action="/save" method="POST" id="form-container" enctype="multipart/form-data">
   <br><br>
 
   <label for="color">Cor</label>
   <input id="color" type="text" name="color" placeholder="Branco">
   <br><br>
-  
+
   <label for="plate">Placa</label>
   <input id="plate" type="text" name="plate" placeholder="AAA-1234">
   <br><br>
 
-  <label for="city">Cidade</label>
-  <input id="city" type="text" name="city" placeholder="Natal">
-  <br><br>
+  <label for="estados">Estados</label>
+  <select name="state" id="options">
+    <option value="" disabled selected>Selecione o estado</option>
+    <option value="Acre">Acre</option>
+    <option value="Alagoas">Alagoas</option>
+    <option value="Amazonas">Amazonas</option>
+    <option value="Amapá">Amapá</option>
+    <option value="Bahia">Bahia</option>
+    <option value="Ceará">Ceará</option>
+    <option value="Distrito Federal">Distrito Federal</option>
+    <option value="Espírito Santo">Espírito Santo</option>
+    <option value="Goiás">Goiás</option>
+    <option value="Maranhão">Maranhão</option>
+    <option value="Minas Gerais">Minas Gerais</option>
+    <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+    <option value="Mato Grosso">Mato Grosso</option>
+    <option value="Pará">Pará</option>
+    <option value="Paraíba">Paraíba</option>
+    <option value="Pernambuco">Pernambuco</option>
+    <option value="Piauí">Piauí</option>
+    <option value="Paraná">Paraná</option>
+    <option value="Rio de Janeiro">Rio de Janeiro</option>
+    <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+    <option value="Rondônia">Rondônia</option>
+    <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+    <option value="Santa Catarina">Santa Catarina</option>
+    <option value="Sergipe">Sergipe</option>
+    <option value="São Paulo">São Paulo</option>
+    <option value="Tocantins">Tocantins</option>
+  </select>
 
-  <label for="state">Estado</label>
-  <input id="state" type="text" name="state" placeholder="RN">
-  <br><br>
+  <label for="cidades">Cidades</label>
+  <select name="city" id="choices">
+    <option value="" disabled selected>Selecione a cidade</option>
+  </select>
 
   <label for="year">Ano</label>
   <input id="year" type="number" name="year" placeholder="2020">
@@ -52,8 +59,8 @@
 
   <label for="status">Situação</label>
   <select name='status'>
-     <option value="Roubado">Roubado</option>
-     <option value="Sem registro ou alerta de roubo">Sem registro ou alerta de roubo</option>
+    <option value="Roubado">Roubado</option>
+    <option value="Sem registro ou alerta de roubo">Sem registro ou alerta de roubo</option>
   </select>
   <br><br>
 
@@ -63,7 +70,7 @@
   <br><br>
 
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+  <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br>
