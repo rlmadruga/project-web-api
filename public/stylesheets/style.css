@@ -1,3 +1,5 @@
+html, body { height: 100%; margin: 0; padding: 0; }
+
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
@@ -5,3 +7,7 @@ body {
 a {
     color: #00B7FF; }
 
+#map_canvas{
+    height: 500px;
+    width: 800px;
+}
