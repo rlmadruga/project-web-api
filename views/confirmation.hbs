@@ -1,4 +1,32 @@
-<h1>Hello, {{user.username}}</h1>
-<h2>Confirmation status: {{user.status}}</h2>
+<section id="page-title-area" class="section-padding overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title  text-center">
+                        <h2>Olá, {{user.username}}</h2>
+                        <span class="title-line"><i class="fa fa-car"></i></span>
+                        <p style="font-size:25px;">STATUS DE CONFIRMAÇÃO: {{user.status}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
 
-<h2>Go to </h2><a href="/auth/login">LOGIN</a>
+
+<section id="login-page-wrap" class="section-padding">
+        <div class="container">
+            <div class="row">
+                 <div class="col-lg-6 col-md-8 m-auto">
+                    <div class="jumbotron text-center">
+                        <h1 class="display-3">Obrigado!</h1>
+                            <p class="lead"><strong>Sua inscrição foi confimada com sucesso.</strong> 
+                            <hr>
+                            <p>
+                            Está com problemas? <a href="">Entre em contato por statuscar@statuscar.com</a>
+                            </p>
+                            <a href="/auth/login" class="btn-404-home"><i class="fa fa-home"></i>Volte para a página de LOGIN</a>
+                    </div>
+                </div>
+        	</div>
+        </div>
+</section>
