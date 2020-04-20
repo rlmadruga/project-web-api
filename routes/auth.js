@@ -72,7 +72,7 @@ router.post('/signup', (req, res, next) => {
                 from: '"Nodemailer " <task@webapi.com>',
                 to: user.email, 
                 subject: 'Task: Confirmation Code', 
-                text: `http://statuscar.herokuapp.com/auth/confirmation/${user.confirmationCode}`,
+                text: `${process.env.SITE}/auth/confirmation/${user.confirmationCode}`,
                 html: '<b>Awesome Message</b>'  
             })
             .then(info => {
