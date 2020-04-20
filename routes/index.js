@@ -121,7 +121,6 @@ router.post('/cars-edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     carId
   } = req.body;
 
-  // console.log('kkkkkk', req.body)
   Car
   .findOneAndUpdate({_id: carId}, {
     $set:{
@@ -154,6 +153,7 @@ router.get('/cars-delete/:carId', (req, res, next) => {
 
 //SEARCH -----------------------------------------
 router.get('/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+
   Car
   .findOne({plate: req.query.search})
   .then(response => {

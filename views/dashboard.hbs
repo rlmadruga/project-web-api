@@ -19,7 +19,12 @@
 <button id="search">Pesquisar</button> <br>
 </form>
 <ul>
-    <li><a href="/cars/{{response._id}}">{{response.plate}}</a></li>
+    <li>{{response.plate}}
+        <p>{{response.status}}</p>
+        <p>{{response.brand}} / {{response.model}}</p>
+        <p>{{response.year}} / {{response.color}}</p>
+        <p>{{response.city}} / {{response.state}}</p>
+    </li>
 </ul>
 
 <ul>
@@ -34,7 +39,6 @@
 {{#if message }}
     <div class="error-message">{{message}}</div>
 {{/if}}
-
 
 <a href="/savecar">Cadastrar carro</a> <br>
 <a href="/auth/logout">Logout</a>
