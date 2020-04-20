@@ -28,7 +28,7 @@
   <br><br>
   
   <label for="plate">Placa</label>
-  <input id="plate" type="text" name="plate" placeholder="AAA-1234" pattern="[A-Z]{3}-[0-9]{4}" title="Use o modelo: AAA-1234">
+  <input oninput="this.value = this.value.toUpperCase()" id="plate" type="text" name="plate" placeholder="AAA-1234" pattern="[A-Z]{3}-[0-9]{4}" title="Use o modelo: AAA-1234">
   <br><br>
 
   <label for="estados">Estados</label>

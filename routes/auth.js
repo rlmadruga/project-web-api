@@ -22,7 +22,7 @@ const transport = nodemailer.createTransport({
 //SIGN UP -------------------------------------------
 router.get("/signup", (req, res, next) => {
     res.render('auth/signup');
-})
+});
 
 //SIGN UP - POST
 router.post('/signup', (req, res, next) => {
@@ -84,20 +84,22 @@ router.post('/signup', (req, res, next) => {
         })
         .catch(err => {
             console.log(err);
-            res.render("auth/signup", { message: "Unabled to save new user!" });
+            res.render("auth/signup", { message: "Não foi possível cadastrar o usuário! Tente de novo!" });
         }) //CLOSING NEWUSER SAVE
     }); //CLOSING FINDONE
 }); //CLOSING SIGNUP POST
+
 
 //LOGIN -------------------------------------------------
 router.get('/login', (req, res, next) => {
     res.render('auth/login', {message: req.flash("error") });
 });
 
+
 //LOGIN - POST
 router.post('/login', passport.authenticate("local", {
   successRedirect: "/dashboard",
-  failureRedirect: "/login",
+  failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
 }));
