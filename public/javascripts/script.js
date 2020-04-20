@@ -81,7 +81,7 @@ function codeAddress(address) {
           position: results[0].geometry.location
       });
     } else {
-      alert("Geocode unsuccessful");
+      // alert("Geocode unsuccessful");
     }
   });
 };

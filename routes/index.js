@@ -12,6 +12,11 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+//THANK YOU --------------------------------------------
+router.get('/thankyou', (req, res, next) => {
+  res.render('thankyou');
+});
+
 //DASHBOARD
 router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 

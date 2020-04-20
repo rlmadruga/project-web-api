@@ -137,28 +137,28 @@
         //     animateIn: 'fadeIn'
         // });
 
-        // Home 2 Service Carousel
-        $(".service-container-wrap").owlCarousel({
-            loop: true,
-            items: 3,
-            margin: 20,
-            autoplay: true,
-            autoplayHoverPause: true,
-            autoplayTimeout: 2000,
-            nav: false,
-            dots: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                1000: {
-                    items: 3
-                }
-            }
-        });
+        // // Home 2 Service Carousel
+        // $(".service-container-wrap").owlCarousel({
+        //     loop: true,
+        //     items: 3,
+        //     margin: 20,
+        //     autoplay: true,
+        //     autoplayHoverPause: true,
+        //     autoplayTimeout: 2000,
+        //     nav: false,
+        //     dots: true,
+        //     responsive: {
+        //         0: {
+        //             items: 1
+        //         },
+        //         600: {
+        //             items: 2
+        //         },
+        //         1000: {
+        //             items: 3
+        //         }
+        //     }
+        // });
 
 
     }); //Ready Function End
