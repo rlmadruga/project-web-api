@@ -9,6 +9,18 @@ body {
     width: 60vw;
 }
 
+.letters {
+	color: #000;
+    font-size: 18px;
+    font-weight: 600;
+	margin-bottom: 5px;
+	margin-top: 30px;
+}
+
+.space {
+	margin-top: 20px;
+}
+
 /*== Layout ==*/
 .overlay {
 	position: relative;
