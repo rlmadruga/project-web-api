@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="stylesheet" href="/stylesheets/responsive.css">
 </head>
-<body class="loader-active">
+<body>
 
    <!--== Header ==-->
     <header id="header-area" class="fixed-top">
@@ -38,8 +38,12 @@
                         <nav class="mainmenu alignright">
                             <ul>
                                 <li class="active"><a href="/">Home</a></li>
+                                {{#unless user}}
                                 <li><a href="/auth/login">Log In</a></li>                                
                                 <li><a href="/auth/signup">Sign Up</a></li>
+                                {{else}}
+                                <li><a href="/auth/logout">Logout</a></li>                                
+                                {{/unless}}
                             </ul>
                         </nav>
                     </div>
@@ -131,7 +135,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Base template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> and was modified by Rhaysa and Sebastião
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>
@@ -150,7 +154,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key="></script>
+  {{!-- <script src="https://maps.googleapis.com/maps/api/js?key="></script> --}}
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   {{!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}

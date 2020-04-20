@@ -85,3 +85,7 @@ function codeAddress(address) {
     }
   });
 };
+
+//PHOTO
+let getImageSrc = $('.car-thumb-1 img').attr('src');
+$('.car-thumb-1').css('background-image', 'url(' + getImageSrc + ')');
