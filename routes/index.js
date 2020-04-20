@@ -73,7 +73,11 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
         console.log(response);
         res.redirect('/dashboard');
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        res.render('savecar', {message: 'Carro já cadastrado em nosso banco de dados!'});
+        console.log(error);
+      });
+        
 });
 
 //SHOW CAR DETAILS --------------------------
@@ -92,7 +96,7 @@ router.get('/cars/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   })
   .catch(error => {
     
-    res.render('savecar', {message: 'Carro já cadastrado em nosso banco de dados!'})
+    // res.render('savecar', {message: 'Carro já cadastrado em nosso banco de dados!'})
     console.log(error);
   });
 }) 
@@ -138,7 +142,7 @@ router.post('/cars-edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 })
 
 //DELETAR CAR ------------------------------------
-router.get('/cars-delete/:carId', (req, res, next) => {
+router.get('/cars-delete/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const {
     carId
   } = req.params;
@@ -165,7 +169,6 @@ router.get('/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   })
   .catch(error => console.log(error));
 });
-
 
 
 module.exports = router;

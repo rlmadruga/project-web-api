@@ -2,7 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 const User = require('../models/User');
-const ensureLogin = require('connect-ensure-login');
+// const ensureLogin = require('connect-ensure-login');
 const nodemailer = require('nodemailer');
 
 //BCRYPT
@@ -72,7 +72,7 @@ router.post('/signup', (req, res, next) => {
                 from: '"Nodemailer " <task@webapi.com>',
                 to: user.email, 
                 subject: 'Task: Confirmation Code', 
-                text: `http://localhost:3000/auth/confirmation/${user.confirmationCode}`,
+                text: `${process.env.SITE}/auth/confirmation/${user.confirmationCode}`,
                 html: '<b>Awesome Message</b>'  
             })
             .then(info => {
