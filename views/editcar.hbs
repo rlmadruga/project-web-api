@@ -1,58 +1,87 @@
-<a href="/dashboard">Voltar para o dashboard</a>
+<section id="lgoin-page-wrap" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-8 m-auto">
+        <div class="login-page-content">
+          <div class="login-form">
+            <h3>Edite seu carro</h3>
+            <form action="/save" method="POST" id="form-container" enctype="multipart/form-data">
+              <div class="name">
+                <div class="row">
+                  <div class="col-md-6">
 
-<h2>Edit Car</h2>
+                    <label class="letters" for="brand">MARCA</label>
+                    <input type="text" name="brand" value="{{car.brand}}" disabled>
+                  </div>
 
-<form action="/cars-edit" method="POST" id="form">
-<input type="hidden" name="carId" value="{{car._id}}">
-  <label for="brand">Marca</label>
-<input type="text" name="brand" value="{{car.brand}}" disabled>
+                  <div class="col-md-6">
+                    <label class="letters" for="model">MODELO</label>
+                    <input type="text" name="model" value="{{car.model}}" disabled>
+                  </div>
+                </div>
+              </div>
 
-<br><br>
+              <div class="username">
+                <label class="letters" for="color">COR</label>
+                <input id="color" type="text" name="color" value="{{car.color}}" disabled>
+              </div>
 
-<label for="model">Modelo</label>
-<input type="text" name="model" value="{{car.model}}" disabled>
+              <div class="username">
+                <label class="letters" for="plate">PLACA</label>
+                <input id="color" type="text" name="color" value="{{car.plate}}" disabled>
+              </div>
 
-  <br><br>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="letters" for="cidades">CIDADE</label>
+                  <input id="city" type="text" name="city" value="{{car.city}}" disabled>
+                </div>
 
-  <label for="color">Cor</label>
-  <input id="color" type="text" name="color" value="{{car.color}}" disabled>
-  <br><br>
+                <div class="col-md-6">
+                  <label class="letters" for="estados">ESTADOS</label>
+                  <input id="state" type="text" name="state" value="{{car.state}}" disabled>
+                </div>
+              </div>
 
+              <div class="password">
+                <label class="letters" for="year">ANO</label>
+                <input id="year" type="number" name="year" value="{{car.year}}" disabled>
+              </div>
 
-  <label for="city">Cidade</label>
-  <input id="city" type="text" name="city" value="{{car.city}}" disabled>
-  <br><br>
+              <div class="password">
+                <label class="letters" for="details">DETALHES</label>
+                <input id="details" type="text" name="details" value="{{car.details}}">
+              </div>
 
-  <label for="state">Estado</label>
-  <input id="state" type="text" name="state" value="{{car.state}}" disabled>
-  <br><br>
+              <div class="password">
+                <label class="letters" for="status">SITUAÇÃO</label>
+                <select class="custom-select" name='status'>
+                  <option value="{{car.status}}" selected>{{car.status}}</option>
+                  {{#compare car.status "Roubado" operator='==='}}
+                  <option value="Sem registro ou alerta de roubo">Sem registro ou alerta de roubo</option>
+                  {{/compare}}
+                  {{#compare car.status "Sem registro ou alerta de roubo" operator='==='}}
+                  <option value="Roubado">Roubado</option>
+                  {{/compare}}
+                </select>
+              </div>
 
-  <label for="year">Ano</label>
-  <input id="year" type="number" name="year" value="{{car.year}}" disabled>
-  <br><br>
+              {{#if message }}
+              <div class="error-message">{{ message }}</div>
+              {{/if}}
 
-  <label for="details">Detalhes</label>
-  <input id="details" type="text" name="details" value="{{car.details}}">
-  <br><br>
+              <div class="log-btn space">
+                <button type="submit"><i class="fa fa-check-square"></i> Editar carro</button>
+              </div>
+            </form>
+          </div>
 
-  <label for="status">Situação</label>
-  <select name='status'>
-     <option value="{{car.status}}" selected>{{car.status}}</option>
-    {{#compare car.status "Roubado" operator='==='}}
-     <option value="Sem registro ou alerta de roubo">Sem registro ou alerta de roubo</option>
-    {{/compare}}
-    {{#compare car.status "Sem registro ou alerta de roubo" operator='==='}}
-     <option value="Roubado">Roubado</option>
-    {{/compare}}
-  </select>
-  <br><br>
-
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br>
-
-  <button type="submit">Editar carro</button>
-
-</form>
+          <div class="login-menu space">
+            <span>Voltar para seu</span>
+            <a href="/dashboard">PERFIL</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

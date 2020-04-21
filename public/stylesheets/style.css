@@ -9,6 +9,10 @@ body {
     width: 60vw;
 }
 
+input[type='text']:disabled,  input[type='number']:disabled{
+	background-color: #ddd;
+}
+
 .letters {
 	color: #000;
     font-size: 18px;
@@ -1336,7 +1340,7 @@ body,
 .create-ac a,
 .login-menu a {
 	color: #000;
-	font-weight: 600;
+	font-weight: 900;
 	-webkit-transition: all 0.4s ease 0s;
 	transition: all 0.4s ease 0s;
 	text-transform: uppercase;
