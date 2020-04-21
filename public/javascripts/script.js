@@ -89,3 +89,10 @@ function codeAddress(address) {
 //PHOTO
 let getImageSrc = $('.car-thumb-1 img').attr('src');
 $('.car-thumb-1').css('background-image', 'url(' + getImageSrc + ')');
+
+//ERROR MESSAGE
+window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove(); 
+  });
+}, 2000);

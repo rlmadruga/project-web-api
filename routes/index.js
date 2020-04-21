@@ -18,7 +18,7 @@ router.get('/thankyou', (req, res, next) => {
 });
 
 //DASHBOARD
-router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+router.get('/dashboard', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
 
   Car
   .find({owner: req.user._id})
@@ -33,7 +33,10 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     });
     res.render('dashboard', {user: req.user, cars: manageCars});
   })
-  .catch(error => console.log(error));
+  .catch(error => {
+  console.log(error);
+    res.redirect('auth/login');
+  })
 });
 
 //SAVE CAR -----------------------------------
@@ -159,16 +162,21 @@ router.get('/cars-delete/:carId', ensureLogin.ensureLoggedIn(), (req, res, next)
 //SEARCH -----------------------------------------
 router.get('/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
+  // let flag = 0;
+  console.log(req.query.search);
+  // if (req.query.search !== undefined) {
   Car
   .findOne({plate: req.query.search})
   .then(response => {
+    console.log(response);
     if (response !== null) {
-      res.render('dashboard', {response})
+      res.render('search', {response});
     } else {
-      res.render('dashboard', {message: "Esse carro não está cadastrado no nosso banco de dados"});
+      res.render('search', {message: "Esse carro não está cadastrado no nosso banco de dados"});
     }
   })
   .catch(error => console.log(error));
+  // }
 });
 
 

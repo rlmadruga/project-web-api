@@ -955,11 +955,15 @@ body,
 }
 
 .register{
-	margin-top: 0px;
+	margin-top: 10px;
 	margin-bottom: 20px;
+	margin-right: 10px;
 }
 
-
+/* .register a:hover {
+	background-color: #222;
+	color: #fff;
+} */
 
 /*== Page Pagination CSS ==*/
 
@@ -1576,6 +1580,102 @@ body,
 	background-color: rgba(0, 0, 0, 0.9);
 }
 
+
+/*== Our Cars CSS ==*/
+
+.ourcar-tab-menu .nav {
+	background-color: #ffd000;
+	border: none;
+	display: block;
+	-ms-flex-wrap: inherit;
+	flex-wrap: inherit;
+}
+
+.ourcar-tab-menu .nav li a {
+	border: none;
+	border-radius: 0;
+	color: #22252c;
+	padding: 15px;
+	text-transform: uppercase;
+	font-weight: 600;
+	border-bottom: 1px solid #22252c;
+}
+
+.ourcar-tab-menu .nav li:last-child a:hover,
+.ourcar-tab-menu .nav li:last-child a {
+	border-color: transparent;
+}
+
+.ourcar-tab-menu .nav li a:hover {
+	border-color: #000;
+}
+
+.ourcar-tab-menu .nav li a.active {
+	background-color: #000;
+	color: #fff;
+	border: none;
+}
+
+.ourcar-info h2 {
+	background-color: #ffd000;
+	color: #fff;
+	font-size: 28px;
+	padding: 8px 10px;
+}
+
+.ourcar-info h2 span {
+	color: #22522c;
+	font-size: 14px;
+	text-transform: lowercase;
+}
+
+.our-table {
+	border: 1px solid #ddd;
+	border-top: 0;
+	border-bottom: 0;
+	max-width: 100%;
+	width: 100%;
+}
+
+.our-table td {
+	border: 1px solid #ddd;
+	font-size: 13px;
+	padding: 8px 20px;
+	text-align: left;
+}
+
+.our-table td:first-child {
+	font-weight: 600;
+}
+
+.ourcar-info a.bookbtn {
+	background-color: #ffd000;
+	color: #fff;
+	display: block;
+	font-size: 18px;
+	font-weight: 700;
+	padding: 10px;
+	text-transform: uppercase;
+	-webkit-transition: all 0.4s ease 0s;
+	transition: all 0.4s ease 0s;
+}
+
+.ourcar-info a.bookbtn:hover {
+	background-color: #222;
+}
+
+.ourcar-pic img {
+	display: block;
+	max-width: 100%;
+	width: 100%;
+}
+
+.letter-color input {
+	color: black;
+}
+/*== Our Cars CSS ==*/
+
+
 /*== Footer ==*/
 #footer-area a {
 	color: #ffd000;
@@ -1622,6 +1722,28 @@ body,
 	margin-top: 20px;
 }
 
+.search-margin {
+	margin: 100px 0;
+}
+
+.about-btn a {
+	background-color: #ffd000;
+	margin-top: 50px;
+	color: #fff;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 600;
+	margin-right: 20px;
+	padding: 6px 30px;
+	text-transform: uppercase;
+	-webkit-transition: all 0.4s ease 0s;
+	transition: all 0.4s ease 0s;
+}
+
+.about-btn a:hover {
+	background-color: #222;
+}
+
 .newsletter-area form {
 	position: relative;
 }
@@ -1630,7 +1752,7 @@ body,
 	background-color: transparent;
 	border: 1px solid #ffd000;
 	border-radius: 2px;
-	color: #fff;
+	/* color: #fff; */
 	height: 55px;
 	padding: 10px;
 	padding-right: 70px;
@@ -1746,9 +1868,16 @@ body,
 	text-transform: uppercase;
 }
 
+.register a:hover {
+	background-color: #222;
+	color: #fff !important;
+}
+
 .footer-bottom-area {
 	background-color: #000;
 	color: #eaeaea;
 	padding: 15px 0;
 }
+
+
 
