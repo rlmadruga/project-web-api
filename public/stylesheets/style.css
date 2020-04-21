@@ -945,6 +945,9 @@ body,
 	margin-top: 0px;
 	margin-bottom: 20px;
 }
+
+
+
 /*== Page Pagination CSS ==*/
 
 .page-pagi {
@@ -1000,6 +1003,11 @@ body,
 .car-details-content h2 span {
 	float: right;
 	font-size: 18px;
+
+	background-color: #19FF6F;
+	padding: 0 5px;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 .car-details-info {
@@ -1013,6 +1021,12 @@ body,
 	font-size: 20px;
 	margin-bottom: 10px;
 	text-transform: uppercase;
+}
+
+.car-details-info p {
+	color: #000;
+	font-size: 14px;
+	
 }
 
 .technical-info {
