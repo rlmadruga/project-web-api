@@ -1,4 +1,4 @@
-var lookup = {
+var lookup2 = {
     'Acre': [
         "Selecione a cidade",
         "Acrelândia",
