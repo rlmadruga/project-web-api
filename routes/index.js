@@ -119,6 +119,7 @@ router.get('/cars-edit/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) =
 
 
 router.post('/cars-edit', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  // console.log(req.body);
   const {
     details,
     status,

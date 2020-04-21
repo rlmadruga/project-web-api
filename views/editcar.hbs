@@ -5,7 +5,8 @@
         <div class="login-page-content">
           <div class="login-form">
             <h3>Edite seu carro</h3>
-            <form action="/save" method="POST" id="form-container" enctype="multipart/form-data">
+            <form action="/cars-edit" method="POST" id="form">
+            <input type="hidden" name="carId" value="{{car._id}}">
               <div class="name">
                 <div class="row">
                   <div class="col-md-6">

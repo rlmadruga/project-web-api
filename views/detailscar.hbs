@@ -23,8 +23,6 @@
                     <div class="car-details-content">
                         {{#with car}}
                         <h2>{{plate}} 
-                            <span class="price"> Situação: <b>{{status}}</b></span>
-
                             {{#compare status "Sem registro ou alerta de roubo" operator='==='}}
                             <span class="price"><b>{{status}}</b></span>
                             {{/compare}}
