@@ -1,3 +1,80 @@
+<section id="page-title-area" class="section-padding overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-12">
+                    <div class="section-title  text-center">
+                        <h2>OLÁ, {{user.username}}</h2>
+                        <span class="title-line"><i class="fa fa-car"></i></span>
+                        <p style="font-size: 17px;">STATUS: {{user.status}}</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+</section>
+
+ 
+<!--== Car List ==-->
+<section id="car-list-area" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Car List Content -->
+                <div class="col-lg-12">
+                    <div class="car-list-content">
+                            <div class="col-lg-4">
+                                <a href="/savecar" class="map-show register" >CADASTRAR CARRO</a>
+            
+                            </div>
+                        <div class="row">
+                            {{#each cars}}
+                            <!-- Single Car  -->
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single-car-wrap">
+                                    <div class="car-list-thumb car-thumb-1"> <img src="{{path}}" alt=""></div>
+                                    <div class="car-list-info without-bar">
+                                        <h2><a href="/cars/{{_id}}">{{plate}}</a></h2>
+                                        {{#if cars.model}}
+                                        <h5>{{cars.model}} / {{cars.brand}}</h5>
+                                        {{/if}}
+                                    
+                                        <a href="/cars/{{_id}}" class="details-btn">DETALHES</a>
+                                        <a href="/cars-edit/{{_id}}" class="rent-btn">EDITAR</a>
+                                        <a href="/cars-delete/{{_id}}" class="delete-btn">DELETAR</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Car -->
+                            {{/each}}
+
+                            
+                        </div>
+                    </div>
+
+                    <!-- Page Pagination -->
+                    <div class="page-pagi">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Page Pagination -->
+                </div>
+                <!-- Car List End -->
+            </div>
+        </div>
+    </section>
+    <!--== Car List  End ==-->
+
+
+{{!-- 
 <h1>DASHBOARD</h1>
 
 <h1>Olá, {{user.username}}</h1>
@@ -41,4 +118,4 @@
 {{/if}}
 
 <a href="/savecar">Cadastrar carro</a> <br>
-<a href="/auth/logout">Logout</a>
+<a href="/auth/logout">Logout</a> --}}
