@@ -14,8 +14,7 @@
             </div>
         </div>
 </section>
-
-    
+  
 <section id="car-list-area" class="section-padding">
         <div class="container">
             <div class="row">
@@ -23,7 +22,19 @@
                 <div class="col-lg-8">
                     <div class="car-details-content">
                         {{#with car}}
-                        <h2>{{plate}} <span class="price ">Situação: <b>{{status}}</b></span></h2>
+                        <h2>{{plate}} 
+                            <span class="price"> Situação: <b>{{status}}</b></span>
+
+                            {{#compare status "Sem registro ou alerta de roubo" operator='==='}}
+                            <span class="price"><b>{{status}}</b></span>
+                            {{/compare}}
+
+                            {{#compare status "Roubado" operator='==='}}
+                            <span class="price" style="background-color: #Dd5b21;"> <b>{{status}}</b></span>
+                            {{/compare}}
+                        </h2>   
+
+
                         <div class="car-preview-crousel">
                             <div class="single-car-preview">
                                 <img src="{{path}}" alt="Car">
@@ -41,27 +52,27 @@
                                         <div class="tech-info-table">
                                             <table class="table table-bordered">
                                                 <tr>
-                                                    <th>Modelo</th>
+                                                    <th>MODELO</th>
                                                     <td>{{model}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Marca</th>
+                                                    <th>MARCA</th>
                                                     <td>{{brand}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Cor</th>
+                                                    <th>COR</th>
                                                     <td>{{color}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Cidade</th>
+                                                    <th>CIDADE</th>
                                                     <td>{{city}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Estado</th>
+                                                    <th>ESTADO</th>
                                                     <td>{{state}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Ano</th>
+                                                    <th>ANO</th>
                                                     <td>{{year}}</td>
                                                 </tr>
                                             </table>
@@ -96,25 +107,3 @@
             </div>
         </div>
 </section>
-    
-
-
-
-{{!-- 
-
-<a href="/dashboard">Voltar para dashboard</a>
-
-{{#with car}}
-<h2>{{plate}}</h2>
-<h4>Situação: {{status}}</h4>
-<img src="{{path}}" alt="{{model}}" width="200">
-<h4>Marca: {{brand}}</h4>
-<h4>Modelo: {{model}}</h4>
-<h4>Cor : {{color}}</h4>
-<h4>Cidade: {{city}}</h4>
-<h4>Estado: {{state}}</h4>
-<h4>Ano: {{year}}</h4>
-<h4>Detalhes: {{details}}</h4>
-{{/with}}
-
-<a href="/cars-edit/{{car._id}}">Editar</a> --}}
