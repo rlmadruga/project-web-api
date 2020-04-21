@@ -11,6 +11,19 @@ body {
 
 input[type='text']:disabled,  input[type='number']:disabled{
 	background-color: #ddd;
+	color: #919191;
+}
+
+select {
+	border: 2px solid rgb(171, 171, 171); 
+}
+
+select:required {
+	border-right: 5px solid #ff180d;
+}
+
+select:valid {
+	border-right: 5px solid #19ff6f;
 }
 
 .letters {
