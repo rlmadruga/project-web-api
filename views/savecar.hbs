@@ -11,7 +11,7 @@
                   <div class="col-md-6">
 
                     <label class="letters" for="brand">MARCA</label>
-                    <select class="custom-select" name='brand' id="options">
+                    <select class="custom-select" name='brand' id="options" required>
                       <option value="" disabled selected>Selecione a Marca</option>
                       <option value="toyota">Toyota</option>
                       <option value="volkswagen">Volkswagen</option>
@@ -26,7 +26,7 @@
 
                   <div class="col-md-6">
                     <label class="letters" for="model">MODELO</label>
-                    <select class="custom-select" name='model' id="choices">
+                    <select class="custom-select" name='model' id="choices" required>
                       <option value="" disabled selected>Selecione o Modelo</option>
                     </select>
                   </div>
@@ -35,19 +35,19 @@
 
               <div class="username">
                 <label class="letters" for="color">COR</label>
-                <input id="color" type="text" name="color" placeholder="Branco">
+                <input id="color" type="text" name="color" placeholder="Branco" required>
               </div>
 
               <div class="username">
                 <label class="letters" for="plate">PLACA</label>
                 <input oninput="this.value = this.value.toUpperCase()" id="plate" type="text" name="plate"
-                  placeholder="AAA-1234" pattern="[A-Z]{3}-[0-9]{4}" title="Use o modelo: AAA-1234">
+                  placeholder="AAA-1234" pattern="[A-Z]{3}-[0-9]{4}" title="Use o modelo: AAA-1234" required>
               </div>
 
               <div class="row">
                 <div class="col-md-6">
                   <label class="letters" for="estados">ESTADOS</label>
-                  <select class="custom-select" name="state" id="options2">
+                  <select class="custom-select" name="state" id="options2" required>
                     <option value="" disabled selected>Selecione o estado</option>
                     <option value="Acre">Acre</option>
                     <option value="Alagoas">Alagoas</option>
@@ -80,7 +80,7 @@
 
                 <div class="col-md-6">
                   <label class="letters" for="cidades">CIDADES</label>
-                  <select class="custom-select" name="city" id="choices2">
+                  <select class="custom-select" name="city" id="choices2" required>
                     <option value="" disabled selected>Selecione a cidade</option>
                   </select>
                 </div>
@@ -89,17 +89,17 @@
 
               <div class="password">
                 <label class="letters" for="year">ANO</label>
-                <input id="year" type="number" name="year" placeholder="2020">
+                <input id="year" type="number" name="year" placeholder="2020" required>
               </div>
 
               <div class="password">
                 <label class="letters" for="details">DETALHES</label>
-                <input id="details" type="text" name="details" placeholder="Lateral riscada em amarelo">
+                <input id="details" type="text" name="details" placeholder="Lateral riscada em amarelo" required>
               </div>
 
               <div class="password">
                 <label class="letters" for="status">SITUAÇÃO</label>
-                <select class="custom-select" name='status'>
+                <select class="custom-select" name='status' required>
                   <option value="Roubado">Roubado</option>
                   <option value="Sem registro ou alerta de roubo">Sem registro ou alerta de roubo</option>
                 </select>
@@ -107,7 +107,7 @@
 
               <div class="password">
                 <label class="letters" for="photo">FOTO:</label>
-                <input type="file" name="photo">
+                <input type="file" name="photo" required>
               </div>
 
               {{#if message }}
