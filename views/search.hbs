@@ -1,0 +1,125 @@
+<section id="page-title-area" class="section-padding overlay">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title  text-center">
+                    <h2>PESQUISAR PLACA</h2>
+                    <span class="title-line"><i class="fa fa-search"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="newsletter-area letter-color search-margin">
+                <form action="/search" method="GET">
+                    {{!-- <label for="search">Pesquisar placa</label> --}}
+                    <input type="text" name="search" placeholder="AAA-0000">
+                    <button class="newsletter-btn" id="search"><i class="fa fa-search"></i></button> <br>
+                </form>
+
+                {{#if message}}
+                <div class="alert alert-warning" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>{{message}}</strong></div>
+                {{/if}}
+
+                {{#if response}}
+                <section id="our-cars" class="section-padding">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="team-content">
+                                    <div class="row">
+                                        <!-- OurCars Tab Menu start -->
+                                        <div class="col-lg-3">
+                                            <div class="ourcar-tab-menu">
+                                                <ul class="nav nav-tabs" id="ourcartabmenu" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" id="ourcar_item_1" data-toggle="tab"
+                                                            href="#ourcar_1" role="tab"
+                                                            aria-selected="true">{{response.plate}}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- OurCars Tab Menu End -->
+
+                                        <!-- OurCars Tab Content start -->
+                                        <div class="col-lg-9">
+                                            <div class="tab-content" id="ourcartabcontent">
+                                                <!-- Single OurCars  start -->
+                                                <div class="tab-pane fade show active" id="ourcar_1" role="tabpanel"
+                                                    aria-labelledby="ourcar_item_1">
+                                                    <div class="row">
+                                                        <div class="col-lg-8 text-center">
+                                                            <div class="display-table">
+                                                                <div class="display-table-cell">
+                                                                    <div class="ourcar-pic">
+                                                                        <img src="{{response.path}}" alt="carro">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-4">
+                                                            <div class="ourcar-info text-center">
+                                                                <h2>{{response.model}}</h2>
+                                                                <table class="our-table">
+                                                                    <tr>
+                                                                        <td>MARCA</td>
+                                                                        <td>{{response.brand}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>COR</td>
+                                                                        <td>{{response.color}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>CIDADE</td>
+                                                                        <td>{{response.city}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>ESTADO</td>
+                                                                        <td>{{response.state}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>SITUAÇÃO</td>
+                                                                        <td>{{response.status}}</td>
+                                                                    </tr>
+                                                                </table>
+                                                                {{!-- <a href="#" class="bookbtn">Book Now</a> --}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single OurCars End -->
+                                            </div>
+                                        </div>
+                                        <!-- OurCars Tab Content End -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--== Our Cars Area End ==-->
+
+                {{/if}}
+
+                <div class="about-btn">
+                    <a href="/dashboard">VOLTAR PARA SEU PERFIL</a>
+                </div>
+                {{!-- <ul>
+                    <li>{{response.plate}}
+                        <p>{{response.status}}</p>
+                        <p>{{response.brand}} / {{response.model}}</p>
+                        <p>{{response.year}} / {{response.color}}</p>
+                        <p>{{response.city}} / {{response.state}}</p>
+                    </li>
+                </ul> --}}
+            </div>
+        </div>
+    </div>
+</div>
