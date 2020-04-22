@@ -41,7 +41,7 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, n
 
 //SAVE CAR -----------------------------------
 router.get('/savecar', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  res.render('savecar');
+  res.render('savecar', {user: req.user});
 });
 
 router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), (req, res, next) => {
@@ -94,7 +94,7 @@ router.get('/cars/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   .then(car => {
     console.log(car);
     res.render('detailscar', {
-      car
+      car, user: req.user
     });
   })
   .catch(error => {
@@ -114,7 +114,7 @@ router.get('/cars-edit/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) =
   .findById(carId)
   .then(car => {
     res.render('editcar', {
-      car
+      car, user: req.user
     });
   })
   .catch(error => console.log(error));
@@ -162,21 +162,22 @@ router.get('/cars-delete/:carId', ensureLogin.ensureLoggedIn(), (req, res, next)
 //SEARCH -----------------------------------------
 router.get('/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
-  // let flag = 0;
   console.log(req.query.search);
-  // if (req.query.search !== undefined) {
+  if (req.query.search !== undefined) {
   Car
   .findOne({plate: req.query.search})
   .then(response => {
     console.log(response);
     if (response !== null) {
-      res.render('search', {response});
+      res.render('search', {response, user: req.user});
     } else {
-      res.render('search', {message: "Esse carro não está cadastrado no nosso banco de dados"});
+      res.render('search', {user: req.user, message: "Esse carro não está cadastrado no nosso banco de dados"});
     }
   })
   .catch(error => console.log(error));
-  // }
+  } else {
+    res.render('search', {user: req.user});
+  }
 });
 
 

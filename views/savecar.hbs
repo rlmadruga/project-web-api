@@ -41,7 +41,7 @@
               <div class="username">
                 <label class="letters" for="plate">PLACA</label>
                 <input oninput="this.value = this.value.toUpperCase()" id="plate" type="text" name="plate"
-                  placeholder="AAA-1234" pattern="[A-Z]{3}-[0-9]{4}" title="Use o modelo: AAA-1234" required>
+                  placeholder="AAA-1234" pattern="[A-Z]{3}-[0-9]{4}$" title="Use o modelo: AAA-1234" required>
               </div>
 
               <div class="row">
@@ -89,7 +89,7 @@
 
               <div class="password">
                 <label class="letters" for="year">ANO</label>
-                <input id="year" type="number" name="year" placeholder="2020" required>
+                <input id="year" type="text" pattern="^[0-9]{4}$" title="Use o modelo: 2020" name="year" placeholder="2020" required>
               </div>
 
               <div class="password">

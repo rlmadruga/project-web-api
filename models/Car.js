@@ -3,17 +3,36 @@ const Schema = mongoose.Schema;
 
 const carSchema = new Schema({
 
-    brand: String,
-    model: String,
-    color: String,
+    brand: {
+        type: String,
+        uppercase: true
+    },
+    model: {
+        type: String,
+        uppercase: true
+    },
+    color: {
+        type: String,
+        uppercase: true
+    },
     plate: {
         type: String,
         unique: true
     }, 
-    city: String,
-    state: String,
-    year: Number,
-    details: String,
+    city: {
+        type: String,
+        uppercase: true
+    },
+    state: {
+        type: String,
+        uppercase: true
+    },
+    year: String,
+
+    details: {
+        type: String,
+        uppercase: true
+    },
     status: {
         type: String,
         enum: ['Roubado', 'Sem registro ou alerta de roubo']
