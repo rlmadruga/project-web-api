@@ -96,3 +96,12 @@ window.setTimeout(function() {
       $(this).remove(); 
   });
 }, 2000);
+
+$('#confirm-delete').on('click', function() {
+  // event.preventDefault();
+  alertify.confirm('Confirm Title', 'Confirm Message', function(){ 
+    $('#confirm-delete').click();
+   }, function(){ 
+     return false;
+   });
+})

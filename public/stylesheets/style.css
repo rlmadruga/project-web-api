@@ -942,6 +942,10 @@ body,
 	background-color: #Dd5b21;
 }
 
+a.delete-btn {
+	color: #fff;
+}
+
 .details-btn{
 	background-color: #fff;
 	/* border-color: #ffd000; */
