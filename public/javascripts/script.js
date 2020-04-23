@@ -105,3 +105,10 @@ $('#confirm-delete').on('click', function() {
      return false;
    });
 })
+
+function checkExtention() {
+  let file = document.querySelector('#file-type');
+  if ( /\.(jpe?g|png|gif)$/i.test(file.files[0].name) === false ) { 
+    alert("Este não é um arquivo válido!"); 
+  }
+}

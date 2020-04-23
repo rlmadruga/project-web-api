@@ -232,7 +232,7 @@ router.post('/signup', (req, res, next) => {
             })
             .then(info => {
                 console.log(info);
-                res.redirect('/auth/login');
+                res.redirect('/thankyou');
             })
             .catch(err => console.log(err))//CLOSING SEND EMAIL
     

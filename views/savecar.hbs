@@ -107,7 +107,7 @@
 
               <div class="password">
                 <label class="letters" for="photo">FOTO:</label>
-                <input type="file" name="photo" required>
+                <input id="file-type" type="file" name="photo" onchange="checkExtention()" required>
               </div>
 
               {{#if message }}

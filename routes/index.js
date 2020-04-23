@@ -9,7 +9,7 @@ const uploadCloud = require('../config/cloudinary');
 
 //INDEX
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('index', {user: req.user});
 });
 
 //THANK YOU --------------------------------------------
