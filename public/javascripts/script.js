@@ -4,7 +4,6 @@
   
 //   }, false);
 
-
 // Map your choices to your option value
 var lookup = {
   'toyota': ['Selecione o Modelo', 'Corolla', 'Hilux', 'Etios', 'SW4', 'Yaris'],
@@ -61,7 +60,7 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
   map = new google.maps.Map(document.getElementById("map_canvas"), options);
-  axios.get('http://localhost:3000/api/')
+  axios.get('http://statuscar.herokuapp.com/api/')
     .then(response => {
       const cars = response.data;
       cars.forEach(element => {
@@ -105,3 +104,25 @@ $('#confirm-delete').on('click', function() {
      return false;
    });
 })
+
+function checkExtention() {
+  let file = document.querySelector('#filetype');
+  if ( /\.(jpe?g|png)$/i.test(file.files[0].name) === false ) { 
+    alert("Este não é um arquivo válido!");
+    file.value = '';
+  }
+}
+
+// $('#file-type').on('change', function (e) {
+//   let file = e.target.files[0];
+
+// })
+
+// $("#filetype").on("change", function(e) {
+//   var file = e.target.files[0];
+//   var image_types = ["image/jpeg", "image/png", "image/gif"];
+//   if (/\.(jpe?g|png|gif)$/i.test(file.files[0].name) === false) {
+//     alert("Este não é um arquivo válido! " + image_types.join(", "));
+//     e.target.val(""); // remove the file from the input
+//   }
+// })

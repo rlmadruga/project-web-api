@@ -6,10 +6,13 @@ const userSchema = new Schema({
   password: String,
   status:{
     type: String,
-    enum: ["Pending confirmation", "Active"],
-    default: 'Pending confirmation'
+    enum: ["Aguardando confirmação", "Ativo"],
+    default: 'Aguardando confirmação'
   },
-  email: String,
+  email: {
+    type: String,
+    unique: true
+  },
   confirmationCode: String, 
 }, {
   timestamps: {

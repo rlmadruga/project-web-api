@@ -5,8 +5,8 @@ body {
     /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; } */}
 
 #map_canvas{
-    height: 500px;
-    width: 60vw;
+    height: 400px;
+    width: 85vw;
 }
 
 input[type='text']:disabled,  input[type='number']:disabled{

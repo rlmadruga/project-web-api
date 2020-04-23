@@ -9,7 +9,7 @@ const uploadCloud = require('../config/cloudinary');
 
 //INDEX
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('index', {user: req.user});
 });
 
 //THANK YOU --------------------------------------------
@@ -40,7 +40,7 @@ router.get('/dashboard', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, n
 });
 
 //SAVE CAR -----------------------------------
-router.get('/savecar', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+router.get('/savecar', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   res.render('savecar', {user: req.user});
 });
 
@@ -84,7 +84,7 @@ router.post('/save', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), 
 });
 
 //SHOW CAR DETAILS --------------------------
-router.get('/cars/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+router.get('/cars/:carId', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   const {
     carId
   } = req.params;
@@ -105,7 +105,7 @@ router.get('/cars/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 }) 
 
 //EDIT CAR -----------------------------------
-router.get('/cars-edit/:carId', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+router.get('/cars-edit/:carId', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
   const {
     carId
   } = req.params;
@@ -160,7 +160,7 @@ router.get('/cars-delete/:carId', ensureLogin.ensureLoggedIn(), (req, res, next)
 })
 
 //SEARCH -----------------------------------------
-router.get('/search', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+router.get('/search', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
 
   console.log(req.query.search);
   if (req.query.search !== undefined) {
