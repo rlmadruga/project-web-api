@@ -46,7 +46,7 @@ router.post('/signup', (req, res, next) => {
    
     //CHECKING EMPTY USER OR PASSWORD
     if (username === "" || password === "") {
-        res.render("auth/signup", { message: "Indicate username and password" });
+        res.render("auth/signup", { message: "Por favor, preencha todos os campos." });
         return;
     }
 
@@ -54,7 +54,7 @@ router.post('/signup', (req, res, next) => {
     User.findOne({username}, "username", (err, user) => {
         
         if(user !== null){
-            res.render("auth/signup" , {message: "The username already exists!" });
+            res.render("auth/signup" , {message: "O nome de usuário e/ou e-mail já existem!" });
             return;
         }
 
@@ -266,7 +266,7 @@ router.get('/confirmation/:confirmCode', (req, res, next) => {
         confirmCode
     } = req.params;
 
-    User.findOneAndUpdate({confirmationCode: confirmCode}, {$set: {status: 'Active'}}, {new: true})
+    User.findOneAndUpdate({confirmationCode: confirmCode}, {$set: {status: 'Ativo'}}, {new: true})
         .then( user => {
             res.render('confirmation', {user});
         })

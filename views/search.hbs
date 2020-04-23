@@ -18,7 +18,7 @@
             <div class="newsletter-area letter-color search-margin">
                 <form action="/search" method="GET">
                     {{!-- <label for="search">Pesquisar placa</label> --}}
-                    <input type="text" name="search" placeholder="AAA-0000">
+                    <input type="text" name="search" placeholder="AAA-0000" pattern="[A-Z]{3}-[0-9]{4}$" title="Use o modelo: AAA-1234">
                     <button class="newsletter-btn" id="search"><i class="fa fa-search"></i></button> <br>
                 </form>
 

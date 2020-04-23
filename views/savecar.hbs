@@ -107,7 +107,7 @@
 
               <div class="password">
                 <label class="letters" for="photo">FOTO:</label>
-                <input id="file-type" type="file" name="photo" onchange="checkExtention()" required>
+                <input id="filetype" type="file" name="photo" title="Selecione somente fotos em formato .jpg, .jpeg, .png" accept="image/jpg, image/jpeg, image/png" onchange="checkExtention()" required>
               </div>
 
               {{#if message }}
@@ -115,7 +115,7 @@
               {{/if}}
 
               <div class="log-btn space">
-                <button type="submit"><i class="fa fa-check-square"></i> Save car</button>
+                <button type="submit"><i class="fa fa-check-square"></i> Salvar Carro</button>
               </div>
             </form>
           </div>
