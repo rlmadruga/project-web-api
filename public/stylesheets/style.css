@@ -6,7 +6,7 @@ body {
 
 #map_canvas{
     height: 400px;
-    width: 85vw;
+    width: 60vw;
 }
 
 input[type='text']:disabled,  input[type='number']:disabled{
