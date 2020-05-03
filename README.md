@@ -14,7 +14,7 @@ Para rodar o projeto em seu computador, faça o download da pasta, e nela, execu
 ```sh
 npm install 
 ```
-Após, você precisa cirar um arquivo env e popular todas as variáveis necessárias com as suas chaves num arquivo env. E depois disso, aí sim:
+Após, você precisa cirar um arquivo env e popular todas as variáveis necessárias com as suas chaves. E depois disso, aí sim:
 
 ```sh
 npm start 
